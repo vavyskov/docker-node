@@ -1,6 +1,6 @@
-# Ignore system files
+## Operating system
 .DS_Store
 
-# Ignore IDEs directories
+## Editor
 .idea/
-nbproject/
+.vscode/
