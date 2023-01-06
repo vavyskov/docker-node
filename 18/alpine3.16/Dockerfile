@@ -140,7 +140,7 @@ WORKDIR ${PROJECT_ROOT}
 ## node-ssh
 #EXPOSE 22
 
-EXPOSE 80 22
+EXPOSE 22
 
 ## node-ssh
 #CMD ["/usr/sbin/sshd", "-D"]
