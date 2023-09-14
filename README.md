@@ -1,9 +1,9 @@
 # docker-node
 
 Supported tags and respective `Dockerfile` links:
-- [`18-1.0.0`](https://github.com/vavyskov/docker-node/tree/master/18/alpine3.16)
-  - node: 18.12.1
-  - npm/npx: 8.19.2
+- [`18-1.0.1`](https://github.com/vavyskov/docker-node/tree/master/18/alpine3.18)
+  - node: 18.17.1
+  - npm/npx: 9.6.7
   - yarn/yarnpkg: 1.22.19
 
 Other:
@@ -42,15 +42,15 @@ Get Node.js and NPM version:
 
 Build and push example:
 ```
-cd docker-node/18/alpine3.16
-docker build -t vavyskov/node:18-1.0.0 .
-(docker build --build-arg NODE_VERSION=18.12.1 -t vavyskov/node:18-1.0.0 .)
-docker push vavyskov/node:18-1.0.0
+cd docker-node/18/alpine3.18
+docker build -t vavyskov/node:18-1.0.1 .
+(docker build --build-arg NODE_VERSION=18.17.1 -t vavyskov/node:18-1.0.1 .)
+docker push vavyskov/node:18-1.0.1
 ```
 
 Image test example:
 ```
-docker run -d vavyskov/node:18-1.0.0
+docker run -d vavyskov/node:18-1.0.1
 docker container ls
 docker exec -it <CONTAINER-ID> sh
   node --version

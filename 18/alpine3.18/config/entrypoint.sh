@@ -27,6 +27,10 @@ update-ca-certificates
 
 ## node-ssh ------------------------------------------------------------------------------------------------------------
 
+## Create home directory and file .profile
+mkdir -p "${USER_HOME}"
+touch "${USER_HOME}/.profile"
+
 ## Standard uid/gid for "www-data" for Alpine: 82, for Debian: 33
 WEB_USER_ID=1000
 
