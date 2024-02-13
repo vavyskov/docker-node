@@ -197,6 +197,48 @@ if [ -d "${DOCUMENT_ROOT}" ]; then
   #mkdir -p "${DOCUMENT_ROOT}"
 fi
 
+
+
+
+
+## Export CA certificate
+if [ -n "${CERTIFICATE_CA_1}" ]; then
+    #{ \
+    #    echo "export NODE_EXTRA_CA_CERTS='/usr/local/share/ca-certificates/${CERTIFICATE_CA_1}'"; \
+    #} >> "${USER_HOME}"/.profile
+    export NODE_EXTRA_CA_CERTS=/usr/local/share/ca-certificates/"${CERTIFICATE_CA_1}"; \
+fi
+
+## Export project host name
+if [ -n "${PROJECT_HOSTNAME}" ]; then
+    #{ \
+    #    echo "export ORIGIN='https://${PROJECT_HOSTNAME}'"; \
+    #} >> "${USER_HOME}"/.profile
+    export ORIGIN=https://"${PROJECT_HOSTNAME}"; \
+fi
+
+#export NODE_EXTRA_CA_CERTS=/usr/local/share/ca-certificates/"${CERTIFICATE_CA_1}"; \
+#export ORIGIN=https://"${PROJECT_HOSTNAME}"; \
+#node /var/www/html/build/index.js
+
+## Run node on background as root
+nohup node /var/www/html/build/index.js &
+
+## ToDo: Run node on background as user (not root)
+#if [ -n "${USER_NAME}" ]; then
+#    { \
+#        echo "export USER_NAME='${USER_NAME}'"; \
+#    } >> ~/.profile
+#  su -c "nohup node /var/www/html/build/index.js &" - "${USER_NAME}"
+#fi
+
+npm install pm2 -g
+#pm2 start /var/www/html/build/index.js
+
+
+
+
+
 ## node-ssh ------------------------------------------------------------------------------------------------------------
 
 ## Set shell for standard web user (enable login)

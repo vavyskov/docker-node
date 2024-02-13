@@ -13,6 +13,7 @@ ENV YARN_VERSION 1.22.19
 ENV TIME_ZONE ${TZ}
 ENV PROJECT_MODE dev
 ENV PROJECT_ROOT /var/www/html
+ENV PROJECT_HOSTNAME ${UNSET}
 ENV DOCUMENT_ROOT /var/www/html/public
 ENV USER_HOME /var/www
 ENV USER_NAME user
@@ -22,6 +23,8 @@ ENV GIT_EMAIL my@email.com
 ## Attention: ENV GIT_NAME="" does not contain empty string, but contains ""
 ENV GIT_NAME My Name
 ENV NODE_SENDMAIL_PATH /usr/bin/msmtp -t --read-envelope-from
+ENV NODE_CRONTAB ${UNSET}
+ENV CERTIFICATE_CA_1 ${UNSET}
 ENV SMTP_HOSTNAME ${UNSET}
 ENV SMTP_PORT 1025
 ENV SMTP_FROM team@example.com
@@ -31,7 +34,6 @@ ENV SMTP_PASSWORD password
 ## Proxy server example: "http://user:password@proxy.example.com:8080"
 ENV PROXY_SERVER ${UNSET}
 ENV HOST_USER_ID ${UNSET}
-ENV NODE_CRONTAB ${UNSET}
 ENV PGPASSFILE ${PROJECT_ROOT}/.pgpass.local
 
 RUN echo "Setting the timezone..." \
